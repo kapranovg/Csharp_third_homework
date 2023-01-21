@@ -6,29 +6,28 @@
 23432 -> да*/
 
 int number = InputInt("Введите число ");
-int reverseNumber = 0;
-int normalNumber = number;
-int temp = 0;
 
-while (number > 0)
+Validate(number);
+
+bool Validate(int num)
 {
-    temp = number % 10;
-    reverseNumber = reverseNumber*10 + temp;
-    number = number / 10;
-}
-
-Validate(normalNumber, reverseNumber);
-
-bool Validate(int num, int revNum)
-{
-    if (num == revNum)
+    int revNum = 0;
+    int normalNum = num;
+    int temp = 0; 
+    while (num > 0)
     {
-        System.Console.WriteLine($"Число {num} - палиндром.");
-        return  true;
+        temp = num % 10;
+        revNum = revNum * 10 + temp;
+        num = num / 10;
+    }
+    if (normalNum == revNum)
+    {
+        System.Console.WriteLine($"Число {normalNum} - палиндром.");
+        return true;
     }
     else
     {
-        System.Console.WriteLine($"Число {num} не является палиндромом.");
+        System.Console.WriteLine($"Число {normalNum} не является палиндромом.");
         return false;
     }
 }
